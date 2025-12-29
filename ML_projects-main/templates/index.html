@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Indicator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f8f9fa; }
+        .main-container { max-width: 1100px; margin-top: 40px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 40px 30px; }
+        h1, h2, h4 { text-align: center; }
+        .navbar { margin-bottom: 30px; }
+        .card { box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 10px; }
+        .card-title { color: #0d6efd; }
+        .btn-predict { font-size: 1.2rem; padding: 12px 32px; }
+        .section-title { margin-top: 40px; margin-bottom: 20px; }
+        .footer { text-align: center; margin-top: 40px; color: #888; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Student Performance ML</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="{{ url_for('predict_datapoint') }}">Prediction Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main-container mx-auto">
+        <h1 class="mb-4">Student Exam Performance Indicator</h1>
+        <h4 class="mb-5">A Machine Learning Project to Predict Student Math Scores</h4>
+        
+        <div class="section-title">
+            <h3>Project Overview</h3>
+        </div>
+        <p>
+            This project predicts the math scores of students based on various demographic and academic features. It helps understand how factors like gender, ethnicity, parental education, lunch type, and test preparation affect student performance. The project includes data analysis, model training, evaluation, and deployment as a web application.
+        </p>
+        
+        <div class="section-title">
+            <h3>Features Used</h3>
+        </div>
+        <ul>
+            <li>Gender</li>
+            <li>Race/Ethnicity</li>
+            <li>Parental Level of Education</li>
+            <li>Lunch</li>
+            <li>Test Preparation Course</li>
+            <li>Reading Score</li>
+            <li>Writing Score</li>
+        </ul>
+        
+        <div class="section-title">
+            <h3>Technologies and Libraries Used</h3>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge bg-primary">Python</span>
+            <span class="badge bg-success">pandas</span>
+            <span class="badge bg-info text-dark">numpy</span>
+            <span class="badge bg-warning text-dark">scikit-learn</span>
+            <span class="badge bg-secondary">CatBoost</span>
+            <span class="badge bg-dark">XGBoost</span>
+            <span class="badge bg-primary">Flask</span>
+            <span class="badge bg-success">Bootstrap</span>
+            <span class="badge bg-info text-dark">Jupyter Notebook</span>
+        </div>
+        
+        <div class="section-title">
+            <h3>Workflow</h3>
+        </div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">1. Data Collection & Exploration</h5>
+                        <ul class="card-text">
+                            <li>Collects student data: gender, ethnicity, parental education, lunch type, test preparation, reading & writing scores.</li>
+                            <li>Performs EDA to understand data distribution and relationships.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">2. Data Preprocessing</h5>
+                        <ul class="card-text">
+                            <li>Handles missing values and encodes categorical features using OneHotEncoder.</li>
+                            <li>Scales numerical features using StandardScaler.</li>
+                            <li>Splits data into training and testing sets.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">3. Model Training & Evaluation</h5>
+                        <ul class="card-text">
+                            <li>Trains multiple regression models: Linear, Ridge, Lasso, KNN, Decision Tree, Random Forest, XGBoost, CatBoost, AdaBoost.</li>
+                            <li>Evaluates models using MAE, RMSE, and R2 Score.</li>
+                            <li>Selects the best performing model for deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">4. Model Deployment</h5>
+                        <ul class="card-text">
+                            <li>Deploys the model using a Flask web application.</li>
+                            <li>Users can input student data and get predicted math scores instantly.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">5. User Interface</h5>
+                        <ul class="card-text">
+                            <li>Modern, responsive UI built with Bootstrap.</li>
+                            <li>Easy navigation and clear instructions for users.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <h3>Model Evaluation Metrics</h3>
+        </div>
+        <ul>
+            <li>Mean Absolute Error (MAE)</li>
+            <li>Root Mean Squared Error (RMSE)</li>
+            <li>R2 Score</li>
+        </ul>
+        
+        <div class="section-title">
+            <h3>How to Use</h3>
+        </div>
+        <ol>
+            <li>Click the <b>Prediction Calculator</b> button in the navigation bar or below.</li>
+            <li>Fill in the student details and scores on the next page.</li>
+            <li>Submit the form to get an instant math score prediction.</li>
+        </ol>
+        
+        <div class="text-center mt-4">
+            <a href="{{ url_for('predict_datapoint') }}" class="btn btn-primary btn-lg btn-predict">Go to Prediction Calculator</a>
+        </div>
+        
+        <div class="footer mt-5">
+            &copy; 2025 Student Exam Performance ML Project &mdash; Built with Flask, Bootstrap, and ML
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
